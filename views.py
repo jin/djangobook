@@ -18,5 +18,4 @@ def hours_ahead(request, offset):
     except ValueError:
         raise Http404()
     dt = datetime.datetime.now() + datetime.timedelta(hours=offset)
-    html = "<html><body>In %s hours, it will be %s.</body></html>" % (offset, dt)
-    return HttpResponse(html)
+    return render_to_response('dateapp/hours_ahead.html', ({'hour_offset': offset, 'next_time': dt}))
