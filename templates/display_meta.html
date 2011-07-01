@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Metadata{% endblock %}
+{% block content %}
+
+
+<table>
+    {% for k,v in request %}
+    <tr><td>{{ k }}</td><td>{{ v }}</td></tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

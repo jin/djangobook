@@ -9,4 +9,5 @@ urlpatterns = patterns('',
         (r'^time/$', current_datetime),
         (r'^time/plus/(\d{1,2})/$', hours_ahead),
         (r'^admin/', include(admin.site.urls)),
+        (r'^meta/$', display_meta),
 )

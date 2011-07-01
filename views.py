@@ -19,3 +19,7 @@ def hours_ahead(request, offset):
         raise Http404()
     dt = datetime.datetime.now() + datetime.timedelta(hours=offset)
     return render_to_response('dateapp/hours_ahead.html', ({'hour_offset': offset, 'next_time': dt}))
+
+
+def display_meta(request):
+    return render_to_response('display_meta.html', {'request': request.META.items()})
