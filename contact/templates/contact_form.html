@@ -37,8 +37,14 @@
                 <label for="id_email">Your e-mail address:</label>
                 {{ form.email }}
             </div>
-            <div class="field">
-                {{ form.message.errors }}
+            <div class="field{% if form.message.errors %} errors{% endif %}">
+                {% if form.message.errors %}
+                <ul>
+                    {% for error in form.message.errors %}
+                    <li><strong>{{ error }}</strong></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
                 <label for"id_message">Message:</label>
                 {{ form.message }}
             </div>
