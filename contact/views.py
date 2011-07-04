@@ -10,7 +10,7 @@ def contact(request):
             errors.append('Enter a subject.')
         if not request.POST.get('message', ''):
             errors.append('Enter a message.')
-        if not request.POST.get('email') and '@' not in request.POST['email']:
+        if request.POST.get('email') and '@' not in request.POST['email']:
             errors.append('Enter a valid e-mail address.')
         if not errors:
             send_mail(
@@ -20,5 +20,10 @@ def contact(request):
                     ['siteowner@example.com'],
                     )
             return HttpResponseRedirect('/contact/thanks/')
-        return render_to_response('contact_form.html', {'errors': errors})
+    return render_to_response('contact_form.html', {
+        'errors': errors,
+        'subject': request.POST.get('subject', ''),
+        'message': request.POST.get('message', ''),
+        'email': request.POST.get('email', ''),
+        })
         
