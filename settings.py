@@ -80,6 +80,7 @@ ROOT_URLCONF = 'djangobook.urls'
 TEMPLATE_DIRS = (
         '/home/jin/Codes/Django/djangobook/templates/',
         '/home/jin/Codes/Django/djangobook/books/templates/',
+        '/home/jin/Codes/Django/djangobook/contact/templates/',
 )
 
 INSTALLED_APPS = (
