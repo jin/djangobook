@@ -35,8 +35,8 @@ def contact(request):
             send_mail(
                     request.POST['subject'],
                     request.POST['message'],
-                    request.PST.get('email', 'noreply@example.com'),
+                    request.POST.get('email', 'noreply@example.com'),
                     ['siteowner@example.com'],
             )
             return HttpResponseRedirect('contact/thanks/')
-    return render_to_response('contact_form.html', {'errors', errors})
+    return render_to_response('contact_form.html', {'errors': errors})
