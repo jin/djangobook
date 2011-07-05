@@ -7,9 +7,9 @@ def hello(request):
     return HttpResponse("Hello World")
 
 
-def current_datetime(request):
+def current_datetime(request, template_name='dateapp/current_datetime.html'):
     current_date = datetime.datetime.now()
-    return render_to_response('dateapp/current_datetime.html', locals()) 
+    return render_to_response(template_name, locals()) 
 
 
 def hours_ahead(request, offset):
