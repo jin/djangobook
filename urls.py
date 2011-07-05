@@ -1,4 +1,5 @@
 from django.conf.urls.defaults import *
+from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
 
@@ -6,7 +7,7 @@ admin.autodiscover()
 urlpatterns = patterns('djangobook.views',
         (r'^hello/$', 'hello'),
         (r'^time/$', 'current_datetime'),
-        (r'^time/plus/(\d{1,2})/$', 'hours_ahead'),
+        (r'^time/plus/(?P<offset>\d{1,2})/$', 'hours_ahead'),
         (r'^admin/', include(admin.site.urls)),
         (r'^meta/$', 'display_meta'),
 )
