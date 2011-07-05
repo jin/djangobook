@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import *
 from djangobook.views import * 
 from djangobook.books import views
+from djangobook.contact.views import *
 from django.contrib import admin
 admin.autodiscover()
 
@@ -13,4 +14,5 @@ urlpatterns = patterns('',
         (r'^meta/$', display_meta),
         (r'^search-form/$', views.search_form),
         (r'^search/$', views.search),
+        (r'^contact/$', contact),
 )
